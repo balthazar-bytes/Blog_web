@@ -20,4 +20,16 @@ class PostCreateView(CreateView):
     form_class = Postform
     template_name = 'post/post_form.html'
     success_url = '/'
+    
+    
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = Postform
+    template_name = 'post/post_update.html'
+    success_url = '/'
+    
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'post/post_confirm_delete.html'
+    success_url = '/'
 # Create your views here.
