@@ -15,5 +15,9 @@ class PostDetailView(DetailView):
     context_object_name = 'post'
     
     
-
+class PostCreateView(CreateView):
+    model = Post
+    form_class = Postform
+    template_name = 'post/post_form.html'
+    success_url = '/'
 # Create your views here.
