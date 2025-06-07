@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Blog{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'post_list' %}">Mi Blog</a></h1>
+        {% block header %}{% endblock %}
+    </header>
+    <nav>
+        {% block nav %}{% endblock %}
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        {% block footer %}© 2024 Mi Blog{% endblock %}
+    </footer>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "post/base.html" %}
+{% load static %}
+
+
+{% block title %}Lista de Posts{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+    <div class="post-item">
+        {# Cambia post.title a post.titulo #}
+        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a></h2>
+        <p class="post-meta">
+            Publicado por {{ post.autor }} el {{ post.fecha_publicacion|date:"d M Y" }}
+        </p>
+        <p>{{ post.contenido|truncatewords:30 }}</p>
+        <a href="{% url 'post_detail' post.pk %}">Leer más</a>
+    </div>
+    <hr>
+{% empty %}
+    <p>No hay posts publicados aún.</p>
+{% endfor %}
+{% endblock %}
