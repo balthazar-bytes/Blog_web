@@ -1,0 +1,39 @@
+{% extends "post/base.html" %}
+{% load static %}
+
+{% block title %}Lista de Posts{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Lista de Posts</h1>
+    <a href="{% url 'post_create' %}" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Crear Post
+    </a>
+</div>
+{% for post in posts %}
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="card-title mb-0">
+                    <a href="{% url 'post_detail' post.pk %}" class="text-decoration-none text-dark">{{ post.titulo }}</a>
+                </h2>
+                <div>
+                    <a href="{% url 'post_update' post.pk %}" class="btn btn-outline-primary btn-sm me-2">
+                        <i class="bi bi-pencil-square"></i> Actualizar
+                    </a>
+                    <a href="{% url 'post_confirm_delete' post.pk %}" class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-trash"></i> Borrar
+                    </a>
+                </div>
+            </div>
+            <p class="card-subtitle text-muted mb-2">
+                Publicado por <strong>{{ post.autor }}</strong> el {{ post.fecha_publicacion|date:"d M Y" }}
+            </p>
+            <p class="card-text">{{ post.contenido|truncatewords:30 }}</p>
+            <a href="{% url 'post_detail' post.pk %}" class="btn btn-link p-0">Leer más</a>
+        </div>
+    </div>
+{% empty %}
+    <div class="alert alert-info">No hay posts publicados aún.</div>
+{% endfor %}
+{% endblock %}
