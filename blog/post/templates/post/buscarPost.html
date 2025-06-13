@@ -1,0 +1,30 @@
+{% extends "post/base.html" %}
+
+{% block title %}Resultados de Búsqueda{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Resultados para: <span class="text-primary">"{{ query }}"</span></h1>
+
+    {% if posts %}
+        <p class="text-muted">Se encontraron {{ posts.count }} resultado(s).</p>
+        <hr>
+        {% for post in posts %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.titulo }}</h5>
+                    <p class="card-text">{{ post.contenido|truncatewords:30 }}</p>
+                    <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Leer más</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning mt-4">
+            <p>No se encontraron posts que coincidan con tu búsqueda.</p>
+            <p>Por favor, intenta con otras palabras.</p>
+        </div>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url 'inicio' %}" class="btn btn-secondary">Volver al inicio</a>
+    </div>
+{% endblock %}
