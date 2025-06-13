@@ -1,6 +1,7 @@
 {% extends "post/base.html" %}
 {% load static %}
 
+<<<<<<< HEAD
 {% block title %}{{ post.titulo }}{% endblock %}
 
 {% block content %}
@@ -62,4 +63,26 @@
         </div>
     </div>
 </div>
+=======
+
+{% block title %}{{ post.titulo }}{% endblock %}
+
+
+
+{% block content %}
+<article class="post-detail">
+    <h1>{{ post.titulo }}</h1>
+    <p class="post-meta">
+        Publicado por {{ post.autor }} el {{ post.fecha_publicacion|date:"d M Y" }}
+    </p>
+    {% if post.imagen %}
+        <div class="post-image">
+            <img src="{{ post.imagen.url }}" alt="Imagen de {{ post.titulo }}">
+        </div>
+    {% endif %}
+    <div class="post-body">
+        {{ post.contenido|linebreaks }}
+    </div>
+</article>
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217
 {% endblock %}

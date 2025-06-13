@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 from django.shortcuts import render,redirect
+=======
+from django.shortcuts import render
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217
 from django.conf import settings 
 from .models import Post
 from .forms import Postform
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+<<<<<<< HEAD
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import login, authenticate
@@ -19,6 +24,8 @@ def inicio(request):
     }
     return render(request, 'post/inicio.html', context)
 
+=======
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217
 
 
 def post_list(request):
@@ -49,6 +56,7 @@ class PostDeleteView(DeleteView):
     template_name = 'post/post_confirm_delete.html'
     success_url = '/'
 # Create your views here.
+<<<<<<< HEAD
 
 
 def buscarPost(request):
@@ -107,3 +115,5 @@ def login_view(request):
     return render(request, 'post/login.html', {'form': form})
 
 
+=======
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217

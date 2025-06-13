@@ -11,8 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
 import os
 import sys
+=======
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -121,6 +124,7 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+<<<<<<< HEAD
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -132,3 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = 'inicio'
 # AÑADE ESTA LÍNEA
 LOGOUT_REDIRECT_URL = 'inicio'
+=======
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217

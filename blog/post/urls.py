@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # En Blog_web/blog/post/urls.py
 
 from django.urls import path
@@ -6,10 +7,20 @@ from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('post/post_list', post_list, name='post_list'),
+=======
+from django import forms
+from .models import Post
+from django.urls import path
+from .views import post_list,PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+
+urlpatterns = [
+    path('', post_list, name='post_list'),
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217
     path('post/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
     path('post/new/', PostCreateView.as_view(), name='post_create'),
     path('post/<int:pk>/edit/', PostUpdateView.as_view(), name='post_update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post_confirm_delete'),
+<<<<<<< HEAD
     path('buscarPost/', buscarPost, name='buscarPost'),
     path('', inicio, name='inicio'),
     path('register/', register, name='register'),
@@ -18,3 +29,6 @@ urlpatterns = [
 
     path('logout/',LogoutView.as_view(next_page='inicio'), name='logout'),
 ]
+=======
+]
+>>>>>>> 20035d3c1acf975ef2bd9fa1a9ef42ebb18dc217
